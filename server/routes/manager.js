@@ -49,7 +49,28 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id', getManager, (req, res) => {
-    res.json(res.manager)
+    if (req.headers.authorization === undefined) {
+        res.status(403).json({ message: 'Токен не распознан' })
+    } else {
+        const token = req.headers.authorization.split('Bearer ')[1]
+        jwt.verify(token, process.env.TOKEN, function(err, decoded) {
+            if (err) {
+                req.status(403).json({ message: 'Неправильный токен' })
+            }
+            if (decoded.admin === false) {
+                res.status(403).json({ message: 'Нужны права администратора' })
+            } else {
+                res.json({
+                    _id: res.manager._id,
+                    login: res.manager.login,
+                    name: res.manager.name,
+                    note: res.manager.note,
+                    admin: res.manager.admin,
+                    date_created: res.manager.date_created
+                })
+            }
+        })
+    }
 })
 
 router.delete('/:id', getManager, (req, res) => {

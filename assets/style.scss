@@ -1,0 +1,179 @@
+$color: #00f;
+$color-alt: #f00;
+$margin: 16px;
+$padding: 16px;
+
+html {
+    font-family: Tahoma, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+input, select, textarea, button {
+    font-family: 'Tahoma', sans-serif;
+}
+
+a {
+    color: $color;
+}
+
+p {
+    margin: $margin/2 0;
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-top: $margin*4;
+    margin-bottom: $margin;
+}
+
+ol, ul {
+    padding-left: $padding;
+}
+
+textarea {
+    display: block;
+}
+
+.center {
+    width: calc(100% - 40px);
+}
+
+.image-center {
+    display: block;
+    margin: $margin auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.content {
+    margin: $margin*3 auto;
+}
+
+.header {
+    background-color: $color;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 99;
+
+    .center {
+        display: flex;
+        justify-content: space-between;
+        color: white;
+
+        nav {
+            display: flex;
+
+            a {
+                color: white;
+                padding: $padding;
+                text-decoration: none;
+                line-height: 1;
+                cursor: pointer;
+            }
+
+            a:hover, a.nuxt-link-exact-active {
+                background-color: $color-alt;
+            }
+        }
+
+        .logout {
+            color: white;
+            padding: $padding;
+            text-decoration: none;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .toggle-nav {
+            display: none
+        }
+    }
+}
+
+.admin-form {
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 9;
+
+    .w100 {
+        width: 100%;
+    }
+
+    .w50 {
+        width: 50%;
+    }
+
+    .w25 {
+        width: 25%;
+    }
+
+    .w12 {
+        width: 12.5%;
+    }
+
+    .form-group {
+        padding: $margin/2;
+        box-sizing: border-box;
+
+        .form-error-message {
+            color: $color-alt;
+            display: block;
+            height: 0;
+            font-size: 12px;
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: 2px;
+        }
+
+        .admin-buttons-block {
+            display: flex;
+            justify-content: space-between;
+            margin: $margin/2 0;
+        }
+
+        .admin-input {
+            width: 100%;
+            padding: $padding/2;
+            margin: 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: 0;
+        }
+        .admin-button{
+            border: 0;
+            background-color: $color-alt;
+            border-radius: 16px;
+            color: white;
+            cursor: pointer;
+            padding: $padding/2 $padding*2;
+            width: auto;
+            &:disabled{
+                background-color: #aaa;
+                cursor: not-allowed;
+            }
+            &.admin-delete{
+                background-color: #000;
+            }
+        }
+    }
+}
+
+.manager-info{
+    font-size: 14px;
+    color: #666;
+    margin-bottom: $margin;
+}
