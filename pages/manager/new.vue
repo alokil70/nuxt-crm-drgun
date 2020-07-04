@@ -41,6 +41,11 @@ import { ValidationObserver, ValidationProvider } from 'vee-validate'
 
 export default {
     name: 'New',
+    components: {
+        Editor,
+        ValidationObserver,
+        ValidationProvider
+    },
     async asyncData() {
         const manager = await axios.get('http://localhost:3000/api/manager/', {
             headers: {

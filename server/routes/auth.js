@@ -36,7 +36,7 @@ router.post('/login', async (req, res, next) => {
                 {
                     name: loggerManager.name,
                     admin: loggerManager.admin,
-                    id: loggerManager._id
+                    id: loggerManager.id
                 },
                 process.env.TOKEN,
                 { expiresIn: 'id' }
